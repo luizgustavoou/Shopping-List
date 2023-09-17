@@ -8,6 +8,7 @@ class AppListShop extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shopping App',
+      theme: ThemeData(primarySwatch: Colors.red),
       home: ShoppingList(
         products: [
           Product(name: 'Eggs'),
