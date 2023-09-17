@@ -8,14 +8,36 @@ class AppListShop extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shopping App',
-      theme: ThemeData(primarySwatch: Colors.red),
-      home: ShoppingList(
-        products: [
-          Product(name: 'Eggs'),
-          Product(name: 'Flour'),
-          Product(name: 'Chocolate chips'),
-        ],
-      ),
+      theme: ThemeData(primarySwatch: Colors.red, brightness: Brightness.light),
+      // home: ShoppingList(
+      //   products: [
+      //     Product(name: 'Eggs'),
+      //     Product(name: 'Flour'),
+      //     Product(name: 'Chocolate chips'),
+      //   ],
+      // ),
+      initialRoute: '/add',
+      routes: {
+        '/': (context) => ShoppingList(
+              products: [
+                Product(name: 'Eggs'),
+                Product(name: 'Flour'),
+                Product(name: 'Chocolate chips'),
+              ],
+            ),
+        '/add': (context) => Scaffold(
+            appBar: AppBar(
+              title: Text('Add product'),
+            ),
+            body: Container(
+                width: double.infinity,
+                height: double.infinity,
+                child: Column(
+                  children: [
+                    Text('TODO ADD PRODUCT'),
+                  ],
+                )))
+      },
     );
   }
 }

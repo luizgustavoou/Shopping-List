@@ -35,7 +35,9 @@ class _ShoppingListState extends State<ShoppingList> {
       appBar: AppBar(title: Text('Shopping List')),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_shopping_cart_rounded),
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).pushNamed('/add');
+        },
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 8),
