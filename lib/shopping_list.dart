@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list_app/shopping_item.dart';
 
 class Product {
   Product({required this.name});
@@ -32,32 +33,17 @@ class _ShoppingListState extends State<ShoppingList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Shopping List')),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.add_shopping_cart_rounded),
-      //   onPressed: null,
-      // ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_shopping_cart_rounded),
+        onPressed: null,
+      ),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 8),
         children: widget.products.map((product) {
-          return ListTile(
-            onTap: () {
-              _handleCartChanged(product, _shoppingCart.contains(product));
-            },
-            leading: CircleAvatar(
-              backgroundColor: _shoppingCart.contains(product)
-                  ? Colors.black54
-                  : Theme.of(context).primaryColor,
-              child: Text(product.name[0]),
-            ),
-            title: Text(
-              product.name,
-              style: _shoppingCart.contains(product)
-                  ? TextStyle(
-                      color: Colors.black54,
-                      decoration: TextDecoration.lineThrough)
-                  : null,
-            ),
-          );
+          return ShoppingItem(
+              product: product,
+              inCart: _shoppingCart.contains(product),
+              onCartChanged: _handleCartChanged);
         }).toList(),
       ),
     );
