@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_list_app/blocs/product_bloc.dart';
 import 'package:shopping_list_app/blocs/product_events.dart';
 import 'package:shopping_list_app/blocs/product_state.dart';
@@ -27,18 +28,17 @@ class _ShoppingListState extends State<ShoppingList> {
     // TODO: implement initState
     super.initState();
     productBloc = ProductBloc();
-    productBloc.inputProduct.add(LoadProductEvent());
+    productBloc.add(LoadProductEvent());
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    productBloc.inputProduct.close();
+    productBloc.close();
   }
 
   void _handleCartChanged(ProductModel product, bool inCart) {
-    // print('${product.name} e $inCart');
     setState(() {
       if (!inCart) {
         _shoppingCart.add(product);
@@ -49,40 +49,51 @@ class _ShoppingListState extends State<ShoppingList> {
   }
 
   void _handleCartRemove(ProductModel product) {
-    productBloc.inputProduct.add(RemoveProductEvent(product: product));
+    productBloc.add(RemoveProductEvent(product: product));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Shopping List')),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add_shopping_cart_rounded),
-          onPressed: () {
-            // Navigator.of(context).pushNamed('/add');
-            productBloc.inputProduct
-                .add(AddProductEvent(product: ProductModel(name: 'blabla')));
-          },
-        ),
-        body: StreamBuilder<ProductState>(
-            stream: productBloc.stream,
-            builder: (context, AsyncSnapshot<ProductState> snapshot) {
-              final productsList = snapshot.data?.products ?? [];
+      appBar: AppBar(title: Text('Shopping List')),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_shopping_cart_rounded),
+        onPressed: () {
+          // Navigator.of(context).pushNamed('/add');
+          productBloc
+              .add(AddProductEvent(product: ProductModel(name: 'blabla')));
+        },
+      ),
+      body: BlocBuilder<ProductBloc, ProductState>(
+        bloc: productBloc,
+        builder: (context, state) {
+          // final productsList = snapshot.data?.products ?? [];
+          if (state is ProductInitialState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is ProductSuccessState) {
+            final productList = state.products;
 
-              return ListView.separated(
-                itemCount: productsList.length,
-                itemBuilder: (context, index) {
-                  return ShoppingItem(
-                    product: productsList[index],
-                    inCart: _shoppingCart.contains(productsList[index]),
-                    onCartChanged: _handleCartChanged,
-                    onCartRemove: _handleCartRemove,
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const Divider();
-                },
-              );
-            }));
+            return ListView.separated(
+              itemCount: productList.length,
+              itemBuilder: (context, index) {
+                return ShoppingItem(
+                  product: productList[index],
+                  inCart: _shoppingCart.contains(productList[index]),
+                  onCartChanged: _handleCartChanged,
+                  onCartRemove: _handleCartRemove,
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider();
+              },
+            );
+          }
+
+          return Container();
+        },
+      ),
+    );
   }
 }
