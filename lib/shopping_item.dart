@@ -6,11 +6,13 @@ class ShoppingItem extends StatelessWidget {
       {super.key,
       required this.product,
       required this.inCart,
-      required this.onCartChanged});
+      required this.onCartChanged,
+      required this.onCartRemove});
 
   final ProductModel product;
   final bool inCart;
   final void Function(ProductModel product, bool inCart) onCartChanged;
+  final void Function(ProductModel productModel) onCartRemove;
 
   TextStyle? _getTextStyle(BuildContext context) {
     if (!inCart) return null;
@@ -36,6 +38,11 @@ class ShoppingItem extends StatelessWidget {
         child: Text(product.name[0]),
       ),
       title: Text(product.name, style: _getTextStyle(context)),
+      trailing: IconButton(
+          onPressed: () {
+            onCartRemove(product);
+          },
+          icon: const Icon(Icons.delete)),
     );
   }
 }

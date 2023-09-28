@@ -48,6 +48,10 @@ class _ShoppingListState extends State<ShoppingList> {
     });
   }
 
+  void _handleCartRemove(ProductModel product) {
+    productBloc.inputProduct.add(RemoveProductEvent(product: product));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +73,11 @@ class _ShoppingListState extends State<ShoppingList> {
                 itemCount: productsList.length,
                 itemBuilder: (context, index) {
                   return ShoppingItem(
-                      product: productsList[index],
-                      inCart: _shoppingCart.contains(productsList[index]),
-                      onCartChanged: _handleCartChanged);
+                    product: productsList[index],
+                    inCart: _shoppingCart.contains(productsList[index]),
+                    onCartChanged: _handleCartChanged,
+                    onCartRemove: _handleCartRemove,
+                  );
                 },
                 separatorBuilder: (BuildContext context, int index) {
                   return const Divider();
