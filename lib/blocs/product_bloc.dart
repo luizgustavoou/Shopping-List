@@ -22,14 +22,14 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
   ProductBloc() : super(ProductInitialState()) {
     // _inputProductController.stream.listen(_mapEventToState);
-    on<LoadProductEvent>((event, emit) => emit(
-        ProductSuccessState(products:  _productsRepository.loadProducts())));
+    on<LoadProductEvent>((event, emit) async => emit(ProductSuccessState(
+        products: await _productsRepository.loadProducts())));
 
-    on<AddProductEvent>((event, emit) => emit(ProductSuccessState(
-        products: _productsRepository.addProduct(event.product))));
+    on<AddProductEvent>((event, emit) async => emit(ProductSuccessState(
+        products: await _productsRepository.addProduct(event.product))));
 
-    on<RemoveProductEvent>((event, emit) => emit(ProductSuccessState(
-        products: _productsRepository.removeProduct(event.product))));
+    on<RemoveProductEvent>((event, emit) async => emit(ProductSuccessState(
+        products: await _productsRepository.removeProduct(event.product))));
   }
 
   // _mapEventToState(ProductEvent event) {
