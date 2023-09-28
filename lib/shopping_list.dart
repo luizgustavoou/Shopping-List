@@ -57,7 +57,7 @@ class _ShoppingListState extends State<ShoppingList> {
     return Scaffold(
       appBar: AppBar(title: Text('Shopping List')),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add_shopping_cart_rounded),
+        child: const Icon(Icons.add_shopping_cart_rounded),
         onPressed: () {
           // Navigator.of(context).pushNamed('/add');
           productBloc
@@ -67,7 +67,6 @@ class _ShoppingListState extends State<ShoppingList> {
       body: BlocBuilder<ProductBloc, ProductState>(
         bloc: productBloc,
         builder: (context, state) {
-          // final productsList = snapshot.data?.products ?? [];
           if (state is ProductInitialState) {
             return const Center(
               child: CircularProgressIndicator(),
