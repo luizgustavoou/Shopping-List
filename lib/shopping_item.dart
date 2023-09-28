@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_list_app/shopping_list.dart';
+import 'package:shopping_list_app/product._model.dart';
 
 class ShoppingItem extends StatelessWidget {
   const ShoppingItem(
@@ -8,9 +8,9 @@ class ShoppingItem extends StatelessWidget {
       required this.inCart,
       required this.onCartChanged});
 
-  final Product product;
+  final ProductModel product;
   final bool inCart;
-  final void Function(Product product, bool inCart) onCartChanged;
+  final void Function(ProductModel product, bool inCart) onCartChanged;
 
   TextStyle? _getTextStyle(BuildContext context) {
     if (!inCart) return null;

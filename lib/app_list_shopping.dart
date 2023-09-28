@@ -18,21 +18,15 @@ class AppListShop extends StatelessWidget {
       // ),
       initialRoute: '/add',
       routes: {
-        '/': (context) => ShoppingList(
-              products: [
-                Product(name: 'Eggs'),
-                Product(name: 'Flour'),
-                Product(name: 'Chocolate chips'),
-              ],
-            ),
+        '/': (context) => const ShoppingList(),
         '/add': (context) => Scaffold(
             appBar: AppBar(
-              title: Text('Add product'),
+              title: const Text('Add product'),
             ),
             body: Container(
                 width: double.infinity,
                 height: double.infinity,
-                child: Column(
+                child: const Column(
                   children: [
                     Text('TODO ADD PRODUCT'),
                   ],

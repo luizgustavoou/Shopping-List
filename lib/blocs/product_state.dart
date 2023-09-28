@@ -1,7 +1,7 @@
-import 'package:shopping_list_app/shopping_list.dart';
+import 'package:shopping_list_app/product._model.dart';
 
 abstract class ProductState {
-  List<Product> products;
+  List<ProductModel> products;
 
   ProductState({required this.products});
 }
@@ -11,7 +11,7 @@ class ProductInitialState extends ProductState {
 }
 
 class ProductSuccessState extends ProductState {
-  ProductSuccessState({required List<Product> products})
+  ProductSuccessState({required List<ProductModel> products})
       : super(products: products);
 
 

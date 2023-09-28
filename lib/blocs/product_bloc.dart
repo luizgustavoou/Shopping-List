@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:shopping_list_app/blocs/product_events.dart';
 import 'package:shopping_list_app/blocs/product_state.dart';
+import 'package:shopping_list_app/product._model.dart';
 import 'package:shopping_list_app/products_repository.dart';
-import 'package:shopping_list_app/shopping_list.dart';
 
 class ProductBloc {
   final _productsRepository =
@@ -25,7 +25,7 @@ class ProductBloc {
   _mapEventToState(ProductEvent event) {
     // TODO: criar um ProductLoadingState, ProductErrorState
 
-    List<Product> products = [];
+    List<ProductModel> products = [];
 
     if (event is LoadProductEvent) {
       products = _productsRepository.loadProducts();

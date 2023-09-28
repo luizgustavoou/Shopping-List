@@ -1,24 +1,24 @@
-import 'package:shopping_list_app/shopping_list.dart';
+import 'package:shopping_list_app/product._model.dart';
 
 class ProductsRepository {
-  final List<Product> _products = [];
+  final List<ProductModel> _products = [];
 
-  List<Product> loadProducts() {
+  List<ProductModel> loadProducts() {
     _products.addAll([
-      Product(name: 'item 1'),
-      Product(name: 'item 2'),
-      Product(name: 'item 3'),
+      ProductModel(name: 'item 1'),
+      ProductModel(name: 'item 2'),
+      ProductModel(name: 'item 3'),
     ]);
 
     return _products;
   }
 
-  List<Product> addProduct(Product product) {
+  List<ProductModel> addProduct(ProductModel product) {
     _products.add(product);
     return _products;
   }
 
-  List<Product> removeProduct(Product product) {
+  List<ProductModel> removeProduct(ProductModel product) {
     _products.remove(product);
 
     return _products;
