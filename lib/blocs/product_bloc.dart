@@ -32,6 +32,18 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         products: await _productsRepository.removeProduct(event.product))));
   }
 
+  @override
+  void onChange(Change<ProductState> change) {
+    super.onChange(change);
+    print(change);
+  }
+
+  @override
+  void onTransition(Transition<ProductEvent, ProductState> transition) {
+    super.onTransition(transition);
+    print(transition);
+  }
+
   // _mapEventToState(ProductEvent event) {
   //   // TODO: criar um ProductLoadingState, ProductErrorState
 
