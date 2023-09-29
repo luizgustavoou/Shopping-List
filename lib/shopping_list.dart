@@ -21,21 +21,10 @@ class _ShoppingListState extends State<ShoppingList> {
   ];
   final _shoppingCart = <ProductModel>{};
 
-  late final ProductBloc productBloc;
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    productBloc = ProductBloc();
-    productBloc.add(LoadProductEvent());
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    productBloc.close();
+    context.read<ProductBloc>().add(LoadProductEvent());
   }
 
   void _handleCartChanged(ProductModel product, bool inCart) {
@@ -49,23 +38,23 @@ class _ShoppingListState extends State<ShoppingList> {
   }
 
   void _handleCartRemove(ProductModel product) {
-    productBloc.add(RemoveProductEvent(product: product));
+    context.read<ProductBloc>().add(RemoveProductEvent(product: product));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Shopping List')),
+      appBar: AppBar(title: const Text('Shopping List')),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_shopping_cart_rounded),
         onPressed: () {
           // Navigator.of(context).pushNamed('/add');
-          productBloc
-              .add(AddProductEvent(product: ProductModel(name: 'blabla')));
+          context
+              .read<ProductBloc>()
+              .add(AddProductEvent(product: ProductModel(name: 'item bla')));
         },
       ),
       body: BlocBuilder<ProductBloc, ProductState>(
-        bloc: productBloc,
         builder: (context, state) {
           if (state is ProductInitialState) {
             return const Center(

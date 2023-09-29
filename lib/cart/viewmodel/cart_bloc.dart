@@ -1,5 +1,3 @@
-
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_list_app/cart/repositories/cart_repository.dart';
 import 'package:shopping_list_app/cart/viewmodel/cart_events.dart';
@@ -17,5 +15,18 @@ class CartBlock extends Bloc<CartEvent, CartState> {
 
     on<RemoveCartEvent>((event, emit) async => emit(CartSuccessState(
         cart: await _cartRepository.removeProduct(event.product))));
+  }
+
+  @override
+  void onChange(Change<CartState> change) {
+    // TODO: implement onChange
+    super.onChange(change);
+    print(change);
+  }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    print('$error, $stackTrace');
+    super.onError(error, stackTrace);
   }
 }
