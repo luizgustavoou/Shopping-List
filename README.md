@@ -5,6 +5,7 @@
 
 
 ## Layout web
+![image](https://github.com/luizgustavoou/Shopping-List/assets/89609312/662be365-6908-4942-ad08-55d34c0acc76)
 
 
 <!-- ## Modelo conceitual -->
@@ -17,6 +18,7 @@
 ## Front end
 * Flutter;
 * Bloc;
+  
 <!--## Implantação em produção -->
 
 ## Infraestrutura
@@ -27,6 +29,11 @@
 git clone https://github.com/luizgustavoou/todo-app-flutter.git
 
 # importar projeto da pasta em alguma IDE (Android Studio ou VSCODE)
+
+#instalar dependências
+flutter pub get
+
+#rodar projeto
 
 ```
 
