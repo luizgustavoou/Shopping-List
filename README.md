@@ -1,16 +1,40 @@
-# shopping_list_app
+# Shopping list app
+<!-- license --> 
 
-A new Flutter project.
+## :memo:  Sobre o projeto
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Layout web
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<!-- ## Modelo conceitual -->
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## :books: Funcionalidades
+* <b>Adicionar todo</b>;
+* <b>Remover todo da lista</b>
+
+# :wrench: Tecnologias utilizadas
+## Front end
+* Flutter;
+* Bloc;
+<!--## Implantação em produção -->
+
+## Infraestrutura
+
+## :rocket: Rodando o projeto
+```bash
+# clonar repositório
+git clone https://github.com/luizgustavoou/todo-app-flutter.git
+
+# importar projeto da pasta em alguma IDE (Android Studio ou VSCODE)
+
+```
+
+## :soon: Implementação futura
+
+## :dart: Status do projeto
+Finalizado
+
+# Autor
+<p>Luiz Gustavo de Oliveira Umbelino</p>p>
+
