@@ -11,8 +11,8 @@
 <!-- ## Modelo conceitual -->
 
 ## :books: Funcionalidades
-* <b>Adicionar todo</b>;
-* <b>Remover todo da lista</b>
+* <b>Adicionar item no carrinho</b>;
+* <b>Remover item</b>
 
 # :wrench: Tecnologias utilizadas
 ## Front end
