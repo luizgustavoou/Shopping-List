@@ -1,47 +1,42 @@
-# Shopping list app
-<!-- license --> 
+# Shopping List App
 
-## :memo:  Sobre o projeto
+## :memo: About the Project
+This project is a simple shopping list application designed to help users manage their shopping items efficiently.
 
-
-## Layout web
+## Web Layout
 ![image](https://github.com/luizgustavoou/Shopping-List/assets/89609312/662be365-6908-4942-ad08-55d34c0acc76)
 
+## :books: Features
+* **Add item to cart**
+* **Remove item from cart**
 
-<!-- ## Modelo conceitual -->
+# :wrench: Technologies Used
+## Frontend
+* Flutter
+* Bloc
 
-## :books: Funcionalidades
-* <b>Adicionar item no carrinho</b>;
-* <b>Remover item</b>
+## Infrastructure
+No specific infrastructure mentioned.
 
-# :wrench: Tecnologias utilizadas
-## Front end
-* Flutter;
-* Bloc;
-  
-<!--## Implantação em produção -->
-
-## Infraestrutura
-
-## :rocket: Rodando o projeto
+## :rocket: Running the Project
 ```bash
-# clonar repositório
+# clone the repository
 git clone https://github.com/luizgustavoou/todo-app-flutter.git
 
-# importar projeto da pasta em alguma IDE (Android Studio ou VSCODE)
+# import the project folder into an IDE (Android Studio or VSCode)
 
-#instalar dependências
+# install dependencies
 flutter pub get
 
-#rodar projeto
-
+# run the project
+flutter run
 ```
 
-## :soon: Implementação futura
+## :soon: Future Implementation
+No future implementations mentioned.
 
-## :dart: Status do projeto
-Finalizado
+## :dart: Project Status
+Completed
 
-# Autor
-<p>Luiz Gustavo de Oliveira Umbelino</p>p>
-
+# Author
+<a href="https://github.com/luizgustavoou">Luiz Gustavo de Oliveira Umbelino</a><br>
